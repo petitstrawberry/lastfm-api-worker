@@ -1,6 +1,6 @@
 {
-  "name": "last-preview-worker",
-  "version": "0.0.0",
+  "name": "lastfm-api-worker",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
@@ -11,5 +11,8 @@
     "@cloudflare/workers-types": "^4.20240222.0",
     "typescript": "^5.0.4",
     "wrangler": "^3.0.0"
+  },
+  "dependencies": {
+    "@petitstrawberry/lastfm-ts": "github:petitstrawberry/lastfm-ts"
   }
 }
