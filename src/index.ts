@@ -107,7 +107,7 @@ export default {
 						<i class="fa-brands fa-lastfm"></i><br>
 						<small>${user.name}が${isNowPlaying ? '再生中' : '最近再生した曲'}</small>
 						<h3>${track.name}</h3>
-						<hr>
+						<hr noshade>
 						<p>Artist: ${track.artist['#text']}</p>
 						<p>Album: ${track.album['#text']}</p>
 					</div>
