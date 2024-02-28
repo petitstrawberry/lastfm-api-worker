@@ -15,6 +15,13 @@ export default {
 		const recenttracks = (await lastFm.user.getRecentTracks({ user: user.name })).recenttracks;
 		const track = recenttracks.track[0];
 		const isNowPlaying = track['@attr']?.nowplaying === 'true';
+
+		// Get aspect ratio from requset query
+		const aspectRatio = new URL(request.url).searchParams.get('aspect-ratio') || '3 / 1';
+
+		// Get multiline from request query
+		const multiline = new URL(request.url).searchParams.get('multiline') == 'true' || false;
+
 		console.log(track);
 
 		const html = `
@@ -35,14 +42,8 @@ export default {
 					margin: 0;
 					padding: 0;
 					height: auto;
-					min-width: 384px;
-					min-height: 120px;
 					width: 100%;
-					aspect-ratio: 16 / 5;
-					// max-height: 200px;
-
-
-
+					aspect-ratio: ${aspectRatio};
 				}
 				.panel {
 					display: flex;
@@ -79,9 +80,8 @@ export default {
 					padding-left: 10px;
 					margin: 0;
 					align-self: center;
-					white-space: nowrap;
-					overflow: scroll;
-					text-overflow: ellipsis;
+					${multiline ? '': 'white-space: nowrap; overflow: scroll; text-overflow: ellipsis;'}
+
 				}
 				.trackdetails::-webkit-scrollbar{
 					display:none;
@@ -112,8 +112,8 @@ export default {
 						<small>${user.name}が${isNowPlaying ? '再生中' : '最近再生した曲'}</small>
 						<h3>${track.name}</h3>
 						<div class="divider"></div>
-						<p>Artist: ${track.artist['#text']}</p>
-						<p>Album: ${track.album['#text']}</p>
+						<p><b>Artist:</b> ${track.artist['#text']}</p>
+						<p><b>Album:</b> ${track.album['#text']}</p>
 					</div>
 				</div>
 			</div>
