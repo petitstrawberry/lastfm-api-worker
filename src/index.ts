@@ -65,6 +65,7 @@ export default {
 					box-sizing: border-box;
 					background-color: rgba(0, 0, 0, 0.3);
 					backdrop-filter: blur(20px);
+					-webkit-backdrop-filter: blur(20px);
 					color: white;
 					overflow: hidden;
 				}
