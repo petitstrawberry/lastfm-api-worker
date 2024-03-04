@@ -1,6 +1,6 @@
 {
   "name": "lastfm-api-worker",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "deploy": "wrangler deploy",
@@ -13,6 +13,7 @@
     "wrangler": "^3.0.0"
   },
   "dependencies": {
-    "@petitstrawberry/lastfm-ts": "github:petitstrawberry/lastfm-ts"
+    "@petitstrawberry/lastfm-ts": "github:petitstrawberry/lastfm-ts",
+    "hono": "^4.0.9"
   }
 }
